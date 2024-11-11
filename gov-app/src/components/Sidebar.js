@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div className="br-menu" id="main-navigation">
-      {/* Estrutura HTML do menu lateral */}
-      <nav>
+    <nav className="br-menu" id="main-navigation">
+      <div className="menu-container">
         <ul>
           <li><Link to="/">Acesso</Link></li>
           <li><Link to="/registro">Registro</Link></li>
-          {/* Condicionalmente mostre o Painel e Encerrar Sessão após autenticação */}
+          {/* Apenas exibir o Painel e Encerrar Sessão após autenticação */}
+          <li><Link to="/painel">Painel</Link></li>
+          <li><button onClick={() => console.log("Encerrar Sessão")}>Encerrar Sessão</button></li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 

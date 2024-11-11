@@ -1,38 +1,37 @@
 // src/pages/Acesso.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { login } from '../api';
 
 function Acesso() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState(null);
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const email = event.target.email.value;
-    const senha = event.target.senha.value;
-
     try {
-      const response = await axios.post('http://localhost:8000/api/acessar', { email, senha });
-      // Autenticação fictícia
-      if (response.data.auth) {
-        navigate('/painel');
-      } else {
-        alert('Erro no login');
-      }
+      const data = await login(email, senha);
+      localStorage.setItem('user', JSON.stringify(data)); // Salva o usuário no localStorage
+      navigate('/painel');
     } catch (error) {
-      console.error(error);
-      alert('Erro ao acessar');
+      setErro(error.message || 'Erro ao fazer login');
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <label>Email:</label>
-      <input type="email" name="email" required />
-      <label>Senha:</label>
-      <input type="password" name="senha" required />
-      <button type="submit">Acessar</button>
-    </form>
+    <div>
+      <h2>Acesso</h2>
+      <form onSubmit={handleLogin}>
+        <label>Email:</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <label>Senha:</label>
+        <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+        <button type="submit">Acessar</button>
+      </form>
+      {erro && <div className="error-message">{erro}</div>}
+    </div>
   );
 }
 

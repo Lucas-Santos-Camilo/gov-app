@@ -40,3 +40,19 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Registro realizado com sucesso'], 201);
     }
+    public function acessar(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->senha, $user->password)) {
+            return response()->json(['error' => 'Credenciais inválidas'], 401);
+        }
+
+        return response()->json(['auth' => true, 'user' => $user->email], 200);
+    }
+    public function listagemUsuarios()
+    {
+        $usuarios = User::all(['id', 'email', 'dt_nascimento']);
+        return response()->json($usuarios);
+    }
+}

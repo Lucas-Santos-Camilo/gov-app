@@ -1,0 +1,11 @@
+.header-logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+.br-divider.vertical {
+    width: 2px;
+    height: 20px;
+    background: gray;
+}

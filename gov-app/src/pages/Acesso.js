@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
-import './Style.css';
+import '../pages/Style.css';
 
 function Acesso() {
   const navigate = useNavigate();

@@ -1,3 +1,9 @@
+.br-menu .menu-container ul{
+    padding: 0;
+}
+.br-menu .menu-container li{
+    list-style-type: none;
+}
 .br-menu .menu-container .menu-encerrar, .br-menu .menu-container .menu-painel{
     display: none;
 }

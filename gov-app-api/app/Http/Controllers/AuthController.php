@@ -1,5 +1,4 @@
-// app/Http/Controllers/AuthController.php
-
+<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -11,7 +10,7 @@ class AuthController extends Controller
 {
     public function registrar(Request $request)
     {
-        // Validação dos dados de entrada
+        // Validação dos dados
         $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users',
             'dt_nascimento' => 'required|date',

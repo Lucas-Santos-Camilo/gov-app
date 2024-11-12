@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 use App\Http\Controllers\AuthController;
 
-Route::post('/acessar', [AuthController::class, 'acessar']);
-Route::post('/registrar', [AuthController::class, 'registrar']);
-Route::get('/listagem-usuarios', [AuthController::class, 'listagemUsuarios']);
+Route::post('/acessar', [AuthController::class, 'acessar']); // Rota para login
+Route::post('/registrar', [AuthController::class, 'registrar']); // Rota para registro
+Route::get('/listagem-usuarios', [AuthController::class, 'listagemUsuarios']); // Rota para listar usuários
+

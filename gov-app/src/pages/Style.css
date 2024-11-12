@@ -1,0 +1,14 @@
+.main-container form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 20px;
+}
+
+.main-container form label, .main-container form button {
+    height: 40px;
+}
+
+.main-container form button{
+    cursor: pointer;
+}

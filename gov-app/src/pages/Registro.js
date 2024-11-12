@@ -1,6 +1,7 @@
 // src/pages/Registro.js
 import React, { useState } from 'react';
 import { register } from '../api';
+import './Style.css';
 
 function Registro() {
   const [email, setEmail] = useState('');

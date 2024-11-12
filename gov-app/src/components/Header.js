@@ -13,9 +13,6 @@ function Header() {
             <div className="header-sign">Sistema de Autenticação</div>
           </div>
         </div>
-        <div className="header-bottom">
-          <div className="header-title">Sistema de Autenticação</div>
-        </div>
       </div>
     </header>
   );
